@@ -1,1 +1,45 @@
-Meu primeiro momento de sscrita no arquivo via terminal
+### Produtos
+
+Aqui estão descritos o comportamento de entidade `Produto`:
+
+| Funcionalidade | Método e Rota |
+| -------- | -------- |
+| Criar novo produto | POST `/products`|
+| Obter informações de um produto | GET `/products/:id` |
+| Obter todos os produtos | GET `/products`|
+| Atualizar um produto | PUT `/products/:id` |
+| Deletar um produto | DELETE `/products/:id` |
+
+
+### Pedido
+
+Aqui estão descritos o comportamento de entidade `Pedido`:
+
+| Funcionalidade | Método e Rota |
+| -------- | -------- |
+| Criar um novo pedido | POST `/orders`|
+| Obter informações de um pedido em particular | GET `/orders/:id` |
+| Obter todos os pedidos | GET `/orders`|
+| Atualizar estado do pedido | Adicionar produtos na lista de produtos de um pedido | PUT `/orders/:id`| 
+| Deletar um pedido | DELETE `/orders/:id`
+Detalhe: apesar de você utilizar a mesma rota para Atualizar estado do pedido  e Adicionar produtos na lista de 
+produtos de um pedido, essas funcionalidades não podem ser processadas na mesma requisição. 
+Você precisa ajustar a lógica para que só uma dessa funcionalidades rodem a depender dos dados que estão sendo enviados.
+
+
+Qualidade de Código
+Tratar erros para caso inesperados.
+Utilizar um padrão de resposta e erro;
+Utilizar os códigos HTTP de maneira correta respeitando as normas REST
+
+    {
+        status: 'sucesso',
+        dados: entidade,
+    }
+
+    {
+        status:  'erro',
+        dados: {
+            mensagem: 'Mensagem descrevendo o erro!'
+        }
+    }
